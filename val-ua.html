@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>VAL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/val.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-light">
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group me-2" role="group" id="btn">
+                    <button class="btn btn-sm btn-outline-success active" data-posts="all">All</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="stock">Stock</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="name">Name</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="vendor">Vendor</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="category">Category</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="description">Description</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="photo">Photo</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="param">Param</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="delivery">Delivery</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="used">Б/У</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="dropp">Dropp</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="wrong">Неформат</button>
+                    <button class="btn btn-sm btn-outline-success" data-posts="links">Links</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <a class="btn btn-sm btn-outline-success" id="UA-RU" href="val.html">RU/<strong>UA</strong></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div id="head-title"></div>
+            <hr>
+            <section class="stock">
+                <p>У кожну картку товару необхідно прописати елемент &lt;stock_quantity&gt; зі значенням залишку товару,
+                    для того що б після кожного продажу, товар не приховувався з сайту на одну годину до наступної
+                    синхронізації.
+                </p>
+                <p>
+                    Приклад:<br>
+                    &lt;stock_quantity&gt;10&lt;/stock_quantity&gt; - залишки товару.</p>
+                <p><strong>Обов'язковий елемент.</strong></p>
+
+                <hr>
+            </section>
+            <section class="stock">
+                <p>Статус наявності товару "Немає в наявності" - available="false", але товар є у залишках
+                    stock_quantity.<br>
+                    Статус наявності товару "Є в наявності" - available="true", але товару немає у залишках -
+                    &lt;stock_quantity&gt;0&lt;/stock_quantity&gt;</p>
+                <hr>
+            </section>
+            <section class="stock">
+                <p>У кожної картки товару в елементі offer необхідно прописати параметр available</p>
+                <p>Параметр "available" використовується для зазначення статусу наявності товару.<br>
+                    Значення «true» відповідає статусу товару «Є в наявності», значення «false» — статусу «Немає в
+                    наявності».<br>
+                    Якщо цей параметр не заповнений — товар буде в статусі «Немає в наявності».</p>
+                <p>Приклад:<br>
+                    &lt;offer id="136" available="true"&gt;</p>
+                <p><strong>Обов'язковий елемент.</strong></p>
+                <hr>
+            </section>
+            <section class="name">
+                <p>
+                    Порядок у назві товару повинен бути: <strong>Тип товару - Бренд - Модель</strong> - Розмір (якщо має
+                    значення) - Колір (якщо має значення) - Артикул (якщо є)<br>
+                    Назва пишеться без дефісів<br>
+                    Точний приклад назв товарів Ви можете побачити в аналогічних товарах, які вже продаються на сайті
+                    Rozetka<br>
+                    Бренд у назві товару має збігатися зі значенням в елементі прайсу &lt;vendor&gt;</p>
+                <p>
+                    Назва товару не повинна мати розділових знаків (коми, крапки, тире, дефіси), окрім тих, що мають
+                    відношення до назви бренду, моделі, характеристик.</p>
+                <hr>
+            </section>
+            <section class="name">
+                <p>
+                    Назви товарів в прайсі мають бути унікальними.<br>У прайсі:
+                </p>
+                <hr>
+            </section>
+            <section class="category">
+                <p>
+                    Необхідно розподілити товари за категоріями згідно з кінцевими категоріями сайту Rozetka, в яких вже
+                    продаються аналогічні товари.<br>
+                    З вимог до прайсу:
+                <ul>
+                    <li>
+                        В одній категорії магазину не повинно бути товарів з двох різних категорій на сайті Rozetka.
+                    </li>
+                </ul>
+                </p>
+                <hr>
+            </section>
+            <section class="description">
+                <p>
+                    В описі товару має бути тільки інформація про конкретну одиницю товару.<br>
+                    В описі не має бути фото, відео, посилання на сайти, ціни та інформація про інші товари, доставку та
+                    магазин.</p>
+                <p>Наприклад, у прайсі:</p>
+
+                <hr>
+            </section>
+            <section class="vendor">
+                <p>
+                    У кожну картку товару необхідно прописати виробника (бренд) через елемент &lt;vendor&gt;
+                </p>
+                <p>
+                    &lt;vendor&gt; - бренд-виробник товару. Повинен вказуватися так, як прописано виробником, і як бренд
+                    зареєстрований документально. Якщо такий бренд вже існує на сайті Rozetka, в прайсі треба вказати
+                    аналогічну назву. Не варто вказувати виробника капсом. Заборонено додавати до назви виробника:
+                    торгова марка, ТМ, ЛТД, ООО, ФОП, ТОВ тощо.</p>
+                <p><strong>Обов'язковий елемент.</strong></p>
+                </p>
+                <hr>
+            </section>
+            <section class="name">
+                <p>
+                    Не зазначений виробник (бренд) у назві товару, наприклад:<br>
+                    Виробник (бренд) у назві товару відрізняється від зазначеного в &lt;vendor&gt;, наприклад:
+                </p>
+                <hr>
+            </section>
+            <section class="photo">
+                <p>
+                    У кожної картки товару мають бути прописані посилання на фото через елемент &lt;picture&gt;<br>
+                    Посилання на фотографії мають бути прямі на відкриття або завантаження, а не відкриватись в
+                    інтерфейсі файлового обмінника (як наразі у прайсі)<br>
+                    Посилання на фото не повинні мати пробіли, кирилічні символи та амперсанди &amp;
+                </p>
+                <hr>
+            </section>
+            <section class="delivery">
+                <p>
+                    В разі, якщо умови сплати та доставки для певних товарів відрізняється від основного асортименту, в
+                    offer додається параметр через &lt;param name="Доставка/Оплата"&gt;.</p>
+                <p>
+                    Приклад заповнення параметра:<br>
+                    &lt;param name="Доставка/Оплата"&gt;Товар на замовлення. Термін доставки – до 7 днів. Передплата
+                    10%&lt;/param&gt;.
+                </p>
+                <hr>
+            </section>
+            <section class="photo">
+                <p>
+                    Для кожного варіанту товару (розміру, кольору і так далі) необхідно створювати окрему картку
+                    товару.<br>
+                    У картці товару мають знаходитись тільки фото, які мають відношення до конкретного товару, і тільки
+                    у тому кольорі (розмірі, і так далі), який зазначений у назві та/або параметрах товару. <br>
+                    Асортимент на фото не дозволяється.
+                </p>
+                <hr>
+            </section>
+            <section class="photo">
+                <p>
+                    Використання логотипів, вотермарок, текстів, посилань, QR-кодів, рамок та інших графічних елементів
+                    на фото заборонено.<br>
+                    Зображення продукта на фото повинно бути ясним, чітким, без зернистості та розмитості.<br>
+                    На головній (першій) фотографії має бути чітко показаний фронтальний вид. Товар на першій фотографії
+                    не має бути обрізаний. Увесь товар повинен бути в межах зображення.<br>
+                    На головній (першій) фотографії має бути чітко показаний фронтальний вид. Товар на першій фотографії
+                    не має бути обрізаний. Увесь товар повинен бути в межах зображення.
+                </p>
+                <hr>
+            </section>
+            <section class="param">
+                <p>
+                    Багато параметрів не збігаються з параметрами категорії, в яких буде розміщуватися товар.</p>
+                <p>
+                    В кожній картці товару необхідно прописати параметри через param name, <strong>відповідно до
+                        параметрів аналогічних товарів,</strong> які вже продаються на сайті Rozetka.</p>
+                <p>
+                    Перелік характеристик, які мають бути виведені через param name, <strong>дивіться у картках товарів,
+                        які вже продаються(вкладка Характеристики) та ліворуч у фільтрах категорії,</strong> де буде
+                    розміщуватися товар.</p>
+                <p>
+                    Параметри, яких немає на сайті Rozetka, але вони важливі при виборі товару покупцем, їх бажано
+                    перенести в опис товару, для того щоб вони відображалися на сайті.</p>
+                <p>
+                    Без зазначення параметрів (param name) розміщення товарів неможливе.
+                </p>
+                <hr>
+            </section>
+            <section class="param">
+                <p>
+                    <strong>Чому так важливі параметри?</strong><br>
+                    Покупець бачить в категорії декілька сотень, а іноді й декілька тисяч позицій товарів. Покупець
+                    починає відмічати фільтри в категорії, щоб залишити тільки той товар, який його цікавить. Якщо не
+                    прописати параметри, то Ваш товар не потрапить в відфільтровані покупцем товари. Ваші товари
+                    залишаться у загальній масі товарів. Клієнт Ваш товар не побачить і не придбає. Ми ж бажаємо, щоб Ви
+                    продавали. Важливо, що найменше, прописати усі параметри, які є фільтрами в категорії, в якій буде
+                    розміщуватися товар на сайті.
+                </p>
+                <hr>
+            </section>
+            <section class="used">
+                <p>
+                    Якщо товар є відновленим, або був у вжитку, у назві та описі товару, обов'язково, має бути написано
+                    позначення - Refurbished або Б/У.<br>
+                    Звертаємо увагу: товари Refurbished та Б/У не групуються з аналогічними моделями нових товарів.
+                </p>
+                <p>Позначення - Refurbished або Б/У треба вказувати у кінці назви.</p>
+                <p>
+                    У картку Б/У товару потрібно включити елемент &lt;state&gt;used&lt;/state&gt;.<br>
+                    У картку Refurbished товару потрібно включити елемент &lt;state&gt;Refurbished&lt;/state&gt;.
+                </p>
+                <hr>
+            </section>
+            <section class="vendor">
+                <p><b>Якщо немає бренду</b> &mdash; виробництво Китай, Україна або інша країна.
+                    <br />В інформації про товар<b>обов'язково</b> вказувати:
+                </p>
+                <ul>
+                    <li>виробник (бренд) &mdash; Без бренда;</li>
+                    <li>характеристику (параметр) «Країна виробник».</li>
+                </ul>
+                <p>Приклад в XML прайс-листі:<br />...<br /><i>&lt;vendor&gt;Без
+                        бренду&lt;/vendor&gt;</i><i><br /></i><i>&lt;param
+                        name="Країна-виробник"&gt;Китай&lt;/param&gt;</i><br />...</p>
+                <hr>
+            </section>
+            <section class="vendor">
+                <p>
+                    У прайсі присутні заборонені бренди для продажу на Маркетплейс. Товари цих брендів необхідно
+                    видалити з прайсу:
+                </p>
+                <hr>
+            </section>
+            <section class="dropp">
+                <p>
+                    Заборонені для продажу товари:
+                <ul>
+                    <li>
+                        підроблені товари (копії, репліки), які містять товарний знак або логотип, ідентичний товарному
+                        знаку або логотипу іншого товару, або подібний до нього.
+                    </li>
+                </ul>
+                </p>
+                <hr>
+            </section>
+            <section class="param">
+                <p>
+                    Значення вказані у назві, параметрах, описі та на фото, в межах однієї картки товару, повинні
+                    збігатись.
+                </p>
+                <hr>
+            </section>
+            <section class="dropp">
+                <p>
+                    Підозра на дропшип товари.<br>
+                    Приклади товарів, які є в прайсі та у нас на сайті:
+                </p>
+                <hr>
+            </section>
+            <section class="wrong">
+                <p>
+                    Некоректний формат прайсу<br>
+                    Потрібен прайс у форматі XML (YML)
+                </p>
+                <hr>
+            </section>
+            <section class="links">
+                <p><strong>КОРИСНІ ПОСИЛАННЯ:</strong></p>
+                <p><strong>Вимоги щодо XML-файлу, та вимоги щодо оформлення карток товарів: </strong>
+                    <a
+                        href="https://sellerhelp.rozetka.com.ua/st/ua/items">https://sellerhelp.rozetka.com.ua/st/ua/items</a>
+                </p>
+                <p>
+                    <strong>Валідатор Rozetka: </strong>
+                    <a
+                        href="https://seller.rozetka.com.ua/gomer/pricevalidate/check/index">https://seller.rozetka.com.ua/gomer/pricevalidate/check/index</a><br>
+                    Інструкція з перевірки прайс-листа (валідація):
+                    <a
+                        href="https://sellerhelp.rozetka.com.ua/st/ua/pricevalidate">https://sellerhelp.rozetka.com.ua/st/ua/pricevalidate</a>
+                </p>
+
+                <p>
+                    Вибір правильних категорій: <a
+                        href="https://sellerhelp.rozetka.com.ua/ua/p179-correct-categories.html">https://sellerhelp.rozetka.com.ua/ua/p179-correct-categories.html</a>
+                </p>
+                <p>
+                    Вимоги до фото: <a
+                        href="https://sellerhelp.rozetka.com.ua/ua/p216-product-images.html">https://sellerhelp.rozetka.com.ua/ua/p216-product-images.html</a>
+                </p>
+                <hr>
+            </section>
+
+        </div>
+    </main>
+</body>
+
+</html>
