@@ -1,20 +1,20 @@
 function showPosts(posts) {
-    
+
     // Сховати всі section або показати all:
     if (posts === "all") {
         document.querySelectorAll('section').forEach(section => {
             section.style.display = 'block';
         });
-        
-    } else {    
+
+    } else {
         document.querySelectorAll('section').forEach(section => {
             section.style.display = 'none';
-        });        
+        });
     }
 
-    document.querySelectorAll('button').forEach(button => {
+    document.querySelectorAll('#btn > button').forEach(button => {
         if (button.classList.contains('active')) {
-         button.classList.remove('active')
+            button.classList.remove('active')
         }
     });
 
@@ -26,17 +26,17 @@ function showPosts(posts) {
 }
 
 // Зачекати завантаження сторінки:
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     document.querySelector('#btn').addEventListener('click', event => {
-        
+
         const elem = event.target;
-        
-        if (elem.closest('button')) {            
+
+        if (elem.closest('#btn > button')) {
             showPosts(elem.dataset.posts);
             elem.classList.add('active');
-        }            
-    })    
+        }
+    })
 
     document.querySelector('#head-title').innerHTML = `<h3>All</h3>`;
 });
